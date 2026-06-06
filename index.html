@@ -8,6 +8,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    
+    <style>
+      :root {
+        --bg-cream: #FAF6F0;
+        --bg-warm: #F2EBE1;
+        --navy-dark: #1A242F;
+        --navy-light: #2C3E50;
+        --accent-brown: #9E7954;
+        --border-cream: #E8DFD3;
+      }
+      body { background-color: var(--bg-cream) !important; color: var(--navy-light) !important; font-family: 'Inter', sans-serif; }
+      h1, h2, .font-serif { font-family: 'Playfair Display', serif !important; font-weight: 500 !important; color: var(--navy-dark) !important; letter-spacing: -0.01em !important; }
+      h3 { font-family: 'Playfair Display', serif !important; color: var(--navy-dark) !important; font-weight: 500 !important; }
+      .bg-white { background-color: var(--bg-cream) !important; }
+      .bg-slate-50, .bg-slate-100 { background-color: var(--bg-warm) !important; }
+      .bg-slate-900 { background-color: var(--navy-dark) !important; }
+      .text-slate-900 { color: var(--navy-dark) !important; }
+      .text-slate-800 { color: var(--navy-light) !important; }
+      .text-slate-600 { color: #5C6B7A !important; }
+      .text-slate-500 { color: #738496 !important; }
+      .text-slate-400 { color: var(--accent-brown) !important; }
+      .border-slate-200, .border-slate-100 { border-color: var(--border-cream) !important; }
+      .border-slate-300 { border-color: #D5C8B8 !important; }
+      button.bg-slate-900, button.text-slate-900, a.bg-slate-900, a.border-slate-200, .uppercase-btn { border-radius: 2px !important; text-transform: uppercase !important; letter-spacing: 0.1em !important; font-size: 0.75rem !important; font-weight: 600 !important; box-shadow: none !important; }
+      .nav-link { text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.8rem !important; }
+      .nav-link.text-slate-900 { border-bottom: 2px solid var(--accent-brown); }
+      .page-section section { position: relative; }
+      .page-section section::before { content: ''; position: absolute; top: 8px; left: 8px; right: 8px; bottom: 8px; border: 1px solid rgba(158, 121, 84, 0.15); pointer-events: none; z-index: 0; }
+      .page-section section > div { position: relative; z-index: 1; }
+      img { border-radius: 2px !important; }
+      .aspect-square { aspect-ratio: 3 / 4 !important; border-radius: 2px !important; }
+      .shadow-sm { box-shadow: 4px 4px 0px rgba(26, 36, 47, 0.05) !important; }
+      .border-dotted { border-bottom: 2px dotted var(--border-cream) !important; }
+      iconify-icon { color: var(--accent-brown) !important; }
+      footer { background-color: var(--navy-dark) !important; color: var(--bg-cream) !important; border-top: none !important; padding-top: 6rem !important; }
+      footer .text-slate-900, footer h4, footer span { color: var(--bg-cream) !important; }
+      footer .text-slate-500, footer p { color: #8F9FA3 !important; }
+      footer .border-slate-100 { border-color: rgba(255,255,255,0.1) !important; }
+      footer a:hover { color: #FFF !important; }
+      .theme-dark { background-color: var(--navy-dark) !important; }
+      .theme-dark h2, .theme-dark p, .theme-dark button { color: var(--bg-cream) !important; }
+      .theme-dark button { border-color: var(--bg-cream) !important; }
+      .theme-dark::before { border-color: rgba(250, 246, 240, 0.1) !important; }
+      #home section { padding-top: 7rem; padding-bottom: 7rem; }
+      #home .grid-cols-2 { gap: 4rem; }
+      #services h2.text-lg { font-size: 1.5rem !important; font-family: 'Playfair Display', serif !important; color: var(--navy-dark) !important; border-bottom: 2px solid var(--accent-brown) !important; padding-bottom: 0.75rem !important; margin-bottom: 1.5rem !important; }
+      #home .grid.md\:grid-cols-3 > div { border-top: 4px solid var(--accent-brown) !important; border-radius: 0 !important; }
+      .rounded-lg, .rounded-xl, .rounded-md { border-radius: 2px !important; }
+      .stitch-border { border: 2px dashed var(--accent-brown) !important; background-color: var(--bg-warm) !important; }
+    </style>
     <style>
       body { font-family: 'Inter', sans-serif; }
       .page-section { display: none; }
@@ -27,14 +77,14 @@
     <header class="bg-white/80 backdrop-blur-md border-b border-slate-200 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         <a href="#" onclick="nav('home')" class="flex items-center gap-2">
-          <span class="font-semibold text-lg tracking-tighter text-slate-900 uppercase">
+          <span class="font-serif font-medium text-2xl tracking-normal text-slate-900 uppercase">
             99's Tailoring
           </span>
         </a>
 
         <!-- Desktop Nav -->
         <nav class="hidden md:flex items-center gap-8">
-          <a href="#" onclick="nav('home')" class="nav-link text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors" data-target="home">
+          <a href="#" onclick="nav('home')" class="nav-link text-sm hover:text-slate-900 transition-colors text-slate-900 font-semibold" data-target="home">
             Home
           </a>
           <a href="#" onclick="nav('services')" class="nav-link text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors" data-target="services">
@@ -82,15 +132,15 @@
     <!-- Main Content Area -->
     <main class="flex-grow flex flex-col">
       <!-- ================= HOME PAGE ================= -->
-      <div id="home" class="page-section active fade-in flex-grow">
+      <div id="home" class="page-section fade-in flex-grow active">
         <!-- Hero -->
         <section class="bg-white py-16 md:py-24 border-b border-slate-200">
           <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 class="text-4xl md:text-5xl font-medium tracking-tight text-slate-900 leading-tight mb-6">
+            <div class="">
+              <h1 class="font-serif text-5xl md:text-6xl text-slate-900 leading-tight mb-8">
                 Expert Tailoring &amp; Alterations in Denver
               </h1>
-              <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+              <p class="text-xl text-slate-600 mb-8 leading-relaxed font-light">
                 For nearly 20 years, we've helped customers look and feel their
                 best through expert alterations, precise tailoring, and
                 dependable craftsmanship.
@@ -128,19 +178,19 @@
                 </span>
               </div>
             </div>
-            <div class="relative h-96 md:h-[32rem] rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-100">
-              <img src="https://images.unsplash.com/photo-1584285424564-9642e74deaf9?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Tailor working on a suit jacket at a sewing machine" class="w-full h-full object-cover">
+            <div class="relative h-96 md:h-[40rem] rounded-none overflow-hidden border-[16px] border-white shadow-2xl bg-slate-100">
+              <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dd0b2b16-8ce7-40eb-905b-b3a85df867f7_1600w.jpg" alt="Tailor working on a suit jacket at a sewing machine" class="w-full h-full object-cover">
             </div>
           </div>
         </section>
 
         <!-- About Preview -->
-        <section class="py-20 bg-slate-50 border-b border-slate-200">
+        <section class="py-20 bg-slate-50 border-b border-slate-200 theme-dark">
           <div class="max-w-4xl mx-auto px-6 text-center">
             <h2 class="text-2xl md:text-3xl font-medium tracking-tight text-slate-900 mb-6">
               A Tailor You Can Trust
             </h2>
-            <p class="text-base text-slate-600 mb-8 leading-relaxed">
+            <p class="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed font-serif italic max-w-4xl mx-auto">
               "After working as a tailor for nearly two decades, I decided to
               take a leap of faith and open my own shop in 2023. Building a
               business from the ground up wasn't easy, but through dedication,
@@ -357,7 +407,7 @@
             <div class="grid md:grid-cols-3 gap-6">
               <!-- Review Card 1 -->
               <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
+                <div class="">
                   <div class="flex gap-1 mb-3">
                     <iconify-icon icon="solar:star-bold" class="text-slate-900" width="16"></iconify-icon>
                     <iconify-icon icon="solar:star-bold" class="text-slate-900" width="16"></iconify-icon>
@@ -378,7 +428,7 @@
               </div>
               <!-- Review Card 2 -->
               <div class="bg-white p-6 rounded-lg border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
+                <div class="">
                   <div class="flex gap-1 mb-3">
                     <iconify-icon icon="solar:star-bold" class="text-slate-900" width="16"></iconify-icon>
                     <iconify-icon icon="solar:star-bold" class="text-slate-900" width="16"></iconify-icon>
@@ -897,7 +947,7 @@
                   clothing is in experienced, capable hands.
                 </p>
               </div>
-              <div class="bg-slate-100 rounded-lg overflow-hidden border border-slate-200 shadow-sm aspect-[4/3]">
+              <div class="bg-slate-100 rounded-none overflow-hidden border-[12px] border-white shadow-xl aspect-[3/4]">
                 <img src="https://images.unsplash.com/photo-1605371924599-2d0365da26f5?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" alt="Tailoring tools" class="w-full h-full object-cover">
               </div>
             </div>
@@ -931,7 +981,7 @@
                   </li>
                 </ul>
               </div>
-              <div class="bg-slate-900 text-white p-8 rounded-lg shadow-sm flex flex-col justify-center">
+              <div class="bg-slate-900 text-white p-8 rounded-lg shadow-sm flex flex-col justify-center theme-dark">
                 <h2 class="text-xl font-medium tracking-tight mb-4 text-white">
                   Mission Statement
                 </h2>
@@ -959,7 +1009,7 @@
             </p>
 
             <!-- Widget Placeholder -->
-            <div class="bg-white border-2 border-dashed border-slate-300 rounded-xl w-full h-[600px] flex flex-col items-center justify-center text-slate-400 p-6 mb-8 shadow-sm">
+            <div class="bg-white border-2 border-dashed border-slate-300 rounded-xl w-full h-[600px] flex flex-col items-center justify-center text-slate-400 p-6 mb-8 shadow-sm stitch-border">
               <iconify-icon icon="solar:calendar-add-linear" width="48" class="mb-4 text-slate-300"></iconify-icon>
               <p class="text-sm font-medium uppercase tracking-widest text-slate-400">
                 Booking Embed Will Be Inserted Here
@@ -1124,6 +1174,7 @@
     </main>
 
     <!-- Footer -->
+    <div class="w-full h-4 bg-[#9E7954] opacity-90" style="background-image: repeating-linear-gradient(to right, transparent, transparent 20px, #FAF6F0 20px, #FAF6F0 22px, transparent 22px, transparent 40px, rgba(250,246,240,0.5) 40px, rgba(250,246,240,0.5) 42px);"></div>
     <footer class="bg-white border-t border-slate-200 py-12 mt-auto">
       <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-8">
         <div class="md:col-span-2">
